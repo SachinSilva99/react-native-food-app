@@ -6,7 +6,7 @@ import 'react-native-reanimated';
 import {useColorScheme} from '@/hooks/useColorScheme';
 import {StatusBar, Text, View} from 'react-native';
 import Index from "@/app/index";
-import {Stack} from "expo-router";
+import {Slot, Stack} from "expo-router";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -25,5 +25,5 @@ export default function RootLayout() {
   if (!loaded) {
     return null;
   }
-  return <Stack/>;
+  return <Slot/>;
 }

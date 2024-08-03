@@ -1,5 +1,5 @@
-import React, { useReducer } from 'react';
-import { View, Text, TextInput, Button, Image, StyleSheet, ScrollView, Alert } from 'react-native';
+import React, {useReducer} from 'react';
+import {View, Text, TextInput, Button, Image, StyleSheet, ScrollView, Alert, TouchableOpacity} from 'react-native';
 import {signUp, SignUpRequest} from "@/service/auth-service";
 
 
@@ -53,7 +53,7 @@ const SignUp: React.FC = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const handleInputChange = (field: keyof SignUpRequest, value: string) => {
-    dispatch({ type: 'SET_FIELD', field, value });
+    dispatch({type: 'SET_FIELD', field, value});
 
   };
 
@@ -82,7 +82,7 @@ const SignUp: React.FC = () => {
       valid = false;
     }
 
-    dispatch({ type: 'SET_ERRORS', errors: newErrors });
+    dispatch({type: 'SET_ERRORS', errors: newErrors});
     return valid;
   };
 
@@ -135,7 +135,19 @@ const SignUp: React.FC = () => {
         value={state.formData.image}
         onChangeText={(text) => handleInputChange('image', text)}
       />
-      <Button title="Sign Up" onPress={handleSubmit} />
+
+      <TouchableOpacity
+        onPress={handleSubmit}
+        style={[styles.buttonContainer, styles.loginButton]}
+      >
+        <Text style={styles.signInText}>Sign Up</Text>
+      </TouchableOpacity >
+      <Text>Already have an Account?</Text>
+      <TouchableOpacity
+        style={[styles.buttonContainer, styles.loginButton]}
+      >
+        <Text style={styles.signInText}>Sign In</Text>
+      </TouchableOpacity>
     </ScrollView>
   );
 };
@@ -164,8 +176,27 @@ const styles = StyleSheet.create({
   error: {
     color: 'red',
     marginBottom: 15,
-    fontSize:10,
+    fontSize: 10,
+  },
+  loginButton: {
+    backgroundColor: '#00b5ec',
+    textShadowColor: "red"
+  },
+  buttonContainer: {
+    marginTop:10,
+
+    height: 45,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 20,
+    width: 250,
+    borderRadius: 30,
+
+  }, signInText: {
+    color: "white"
   }
+
 });
 
 export default SignUp;
