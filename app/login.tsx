@@ -76,11 +76,11 @@ export default function Login() {
         <Text style={styles.loginText}>Login</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity
-        style={styles.buttonContainer}
-        onPress={() => showAlert('forgot password')}>
-        <Text>Forgot your password?</Text>
-      </TouchableOpacity>
+      {/*<TouchableOpacity*/}
+      {/*  style={styles.buttonContainer}*/}
+      {/*  onPress={() => showAlert('forgot password')}>*/}
+      {/*  <Text>Forgot your password?</Text>*/}
+      {/*</TouchableOpacity>*/}
 
       <TouchableOpacity
         style={styles.buttonContainer}

@@ -22,11 +22,31 @@ export interface StandardResponse<T> {
   data?: T
   pageCount?: number
 }
+
+export interface SignUpRequest {
+  username: string;
+  email: string;
+  password: string;
+  address: string;
+  image: string;
+}
+
+
 export const login = async (data: LoginRequest):Promise<StandardResponse<LoginResponse>> => {
-  console.log(data)
   try {
     const response = await apiClient.post(
       `/auth/login`,
+      data
+    );
+    return response.data;
+  } catch (error:any) {
+    throw error.response.data.msg;
+  }
+};
+export const signUp = async (data: SignUpRequest):Promise<StandardResponse<any>> => {
+  try {
+    const response = await apiClient.post(
+      `/auth/signup`,
       data
     );
     return response.data;
