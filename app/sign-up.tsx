@@ -1,6 +1,7 @@
 import React, {useReducer} from 'react';
 import {View, Text, TextInput, Button, Image, StyleSheet, ScrollView, Alert, TouchableOpacity} from 'react-native';
 import {signUp, SignUpRequest} from "@/service/auth-service";
+import {Link} from "expo-router";
 
 
 interface State {
@@ -143,11 +144,14 @@ const SignUp: React.FC = () => {
         <Text style={styles.signInText}>Sign Up</Text>
       </TouchableOpacity >
       <Text>Already have an Account?</Text>
-      <TouchableOpacity
-        style={[styles.buttonContainer, styles.loginButton]}
-      >
-        <Text style={styles.signInText}>Sign In</Text>
-      </TouchableOpacity>
+      <Link href="/login">
+        <TouchableOpacity
+          style={[styles.buttonContainer, styles.loginButton]}
+        >
+          <Text style={styles.signInText}>Sign In</Text>
+        </TouchableOpacity>
+      </Link>
+
     </ScrollView>
   );
 };

@@ -10,7 +10,7 @@ import {
 } from 'react-native'
 import {login, LoginRequest} from "@/service/auth-service";
 import {AsyncStorageKeys, getDataFromAsyncStorage, setDataToAsyncStorage} from "@/util/AsyncStorageUtil";
-import {router} from "expo-router";
+import {Link, router} from "expo-router";
 
 
 export default function Login() {
@@ -78,11 +78,14 @@ export default function Login() {
         {/*  <Text>Forgot your password?</Text>*/}
         {/*</TouchableOpacity>*/}
 
-        <TouchableOpacity
-          style={styles.buttonContainer}
-          onPress={() => loginOnClick()}>
-          <Text>Sign up</Text>
-        </TouchableOpacity>
+        <Link href='/sign-up'>
+          <TouchableOpacity
+            style={styles.buttonContainer}
+          >
+            <Text>Sign up</Text>
+          </TouchableOpacity>
+        </Link>
+
       </View>
     );
 

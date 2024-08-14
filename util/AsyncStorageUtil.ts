@@ -13,9 +13,7 @@ export const setDataToAsyncStorage = (
 ): Promise<void> => {
   return AsyncStorage.setItem(key, data);
 };
-export const setLastLang = (key: string, data: 'en' | 'si'): Promise<void> => {
-  return AsyncStorage.setItem(key, data);
-};
+
 
 export const getDataFromAsyncStorage = (key: string): Promise<any> => {
   return AsyncStorage.getItem(key);
